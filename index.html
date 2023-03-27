@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Calculator App</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">Calculator App</h1>
+    <div class="app-container">
+      <div class="display">
+        <span id="numberDisplay">9</span>
+      </div>
+      <div class="operators">
+        <input type="button" id="divide" value="÷" />
+        <input type="button" id="multiply" value="x" />
+        <input type="button" id="subtract" value="-" />
+        <input type="button" id="addition" value="+" />
+        <input type="button" id="equals" value="=" />
+      </div>
+      <div class="buttons">
+        <div class="first-row">
+          <input type="button" id="CE" value="CE" />
+          <input type="button" id="divide" value="÷" />
+        </div>
+        <div class="second-row">
+          <input type="button" id="seven" value="7" />
+          <input type="button" id="eight" value="8" />
+          <input type="button" id="nine" value="9" />
+          <input type="button" id="multiply" value="x" />
+        </div>
+        <div class="third-row">
+          <input type="button" id="four" value="4" />
+          <input type="button" id="five" value="5" />
+          <input type="button" id="six" value="6" />
+          <input type="button" id="subtract" value="-" />
+        </div>
+        <div class="forth-row">
+          <input type="button" id="one" value="1" />
+          <input type="button" id="two" value="2" />
+          <input type="button" id="three" value="3" />
+          <input type="button" id="addition" value="+" />
+        </div>
+        <div class="fifth-row">
+          <input type="button" id="zero" value="0" />
+          <input type="button" id="decimal" value="." />
+          <input type="button" id="equals" value="=" />
+        </div>
+        <div class="bottom-row">
+          <input type="button" id="addMemory" value="M+" />
+          <input type="button" id="subtractMemory" value="M-" />
+          <input type="button" id="clearMemory" value="MC" />
+          <input type="button" id="memory" value="MR" />
+        </div>
+      </div>
+    </div>
+    <script src="calculator.js"></script>
+  </body>
+</html>
