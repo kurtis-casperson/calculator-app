@@ -1,6 +1,90 @@
-// event listeners for each button
 // when a number button is clicked is it added to an empty variable
+
 // when a operator is clicked the text box becomes empty and the next number can be input
 // clicking multiple operators.. the last operator clicked is the one used.
 // that will run when the = button is clicked
 // the clear button will remove the numbers from the variable
+
+const buttonEvents = document.querySelectorAll('[data-button]')
+const twobuttons = document.querySelectorAll('row-two')
+const buttons = document.getElementsByClassName('number-btn')
+const operators = document.getElementsByClassName('operator-btn')
+const equalButton = document.getElementsByClassName('equal-btn')
+const display = document.getElementById('numberDisplay')
+let screenDisplay = []
+
+const buttonsArray = [...buttons]
+console.log('buttonsArray', buttonsArray)
+const operatorArray = [...operators]
+// console.log(buttonsArray, 'buttons')
+// console.log(operators)
+
+// display functions
+
+const buttonDisplayFunction = (buttonsArray) => {
+  buttonsArray.forEach((button) => {
+    button.addEventListener('click', () => {
+      console.log(button.value)
+      display.textContent = button.value
+    })
+  })
+}
+
+// perform equations
+
+const numberSequence = (buttonsArray) => {
+  buttonsArray.forEach((button) => {
+    button.addEventListener('click', () => {
+      // add nubmer or decimal to the equationString
+    })
+  })
+}
+
+operatorArray.forEach((operator) => {
+  operator.addEventListener('click', () => {
+    console.log(operator.value)
+    // add operator to equationString
+    // if equationString begins [0] with an operator, then remove the operator from the string
+  })
+})
+
+const calculation = () => {
+  const buttonPress = buttonDisplayFunction(buttonsArray)
+
+  return buttonPress
+}
+
+calculation()
+
+// equals event listener
+
+// const displaySequence = () => {
+// let displayString = ''
+// displayString =  Number(input)
+// }
+
+// // if(!(displaySequence.include(operator) ){
+//   return endefined
+// }
+//   if(displaySequence[0] === equals(operator)){
+// return undefined
+//   }
+
+// const pressButtons = (buttonsArray) => {
+//   // debugger
+//   buttonsArray.forEach((button) => {
+//     // buttons.addEventListener('click', () => {
+//     console.log('button')
+//     display.textContent = button.value
+//     console.log(button.value)
+//     // })
+//   })
+// }
+// buttons.addEventListener('click', calculation)
+
+// const mapOperators = operatorArray.map(function (operator) {
+//   operator.addEventListener('click', () => {
+//     display.textContent = operator.value
+//     console.log(operator.value, 'maparray')
+//   })
+// })

@@ -12,49 +12,54 @@
   <body>
     <h1 id="title">Calculator App</h1>
     <div class="app-container">
-      <div class="display">
-        <span id="numberDisplay">9</span>
+      <div class="diplay-container">
+        <div>
+          <span id="numberDisplay"></span>
+        </div>
+        <div>
+          <button
+            id="clear"
+            class="clear-btn"
+            onclick="document.getElementById(
+            'numberDisplay').value = ''"
+            value="CE"
+          >
+            CE
+          </button>
+        </div>
       </div>
-      <div class="operators">
-        <input type="button" id="divide" value="÷" />
-        <input type="button" id="multiply" value="x" />
-        <input type="button" id="subtract" value="-" />
-        <input type="button" id="addition" value="+" />
-        <input type="button" id="equals" value="=" />
-      </div>
-      <div class="buttons">
-        <div class="first-row">
-          <input type="button" id="CE" value="CE" />
-          <input type="button" id="divide" value="÷" />
+      <div class="buttons-container">
+        <div class="memory-btn-container">
+          <button class="number-btn, memory-btn" value="M+">M+</button>
+          <button class="number-btn, memory-btn" value="M-">M-</button>
+          <button class="number-btn, memory-btn" value="MC">MC</button>
+          <button class="number-btn, memory-btn" value="MR">MR</button>
         </div>
-        <div class="second-row">
-          <input type="button" id="seven" value="7" />
-          <input type="button" id="eight" value="8" />
-          <input type="button" id="nine" value="9" />
-          <input type="button" id="multiply" value="x" />
+        <div>
+          <button class="number-btn" value="7">7</button>
+          <button class="number-btn" value="8">8</button>
+          <button class="number-btn" value="9">9</button>
+          <button class="operator-btn" value="/">÷</button>
         </div>
-        <div class="third-row">
-          <input type="button" id="four" value="4" />
-          <input type="button" id="five" value="5" />
-          <input type="button" id="six" value="6" />
-          <input type="button" id="subtract" value="-" />
+        <div>
+          <button class="number-btn" value="4">4</button>
+          <button class="number-btn" value="5">5</button>
+          <button class="number-btn" value="6">6</button>
+          <button class="operator-btn" value="*">x</button>
         </div>
-        <div class="forth-row">
-          <input type="button" id="one" value="1" />
-          <input type="button" id="two" value="2" />
-          <input type="button" id="three" value="3" />
-          <input type="button" id="addition" value="+" />
+        <div>
+          <button class="number-btn" value="1">1</button>
+          <button class="number-btn" value="2">2</button>
+          <button class="number-btn" value="3">3</button>
+          <button class="operator-btn" value="-">-</button>
         </div>
-        <div class="fifth-row">
-          <input type="button" id="zero" value="0" />
-          <input type="button" id="decimal" value="." />
-          <input type="button" id="equals" value="=" />
-        </div>
-        <div class="bottom-row">
-          <input type="button" id="addMemory" value="M+" />
-          <input type="button" id="subtractMemory" value="M-" />
-          <input type="button" id="clearMemory" value="MC" />
-          <input type="button" id="memory" value="MR" />
+        <div>
+          <button class="number-btn" value="0">0</button>
+          <button class="number-btn" value=".">.</button>
+          <button class="operator-btn, equal-btn" id="equal-btn" value="=">
+            =
+          </button>
+          <button class="operator-btn" value="+">+</button>
         </div>
       </div>
     </div>
