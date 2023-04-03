@@ -14,10 +14,7 @@ const display = document.getElementById('numberDisplay')
 let equationArray = []
 
 const buttonsArray = [...buttons]
-console.log('buttonsArray', buttonsArray)
 const operatorArray = [...operators]
-// console.log(buttonsArray, 'buttons')
-// console.log(operators)
 
 // display functions
 
@@ -61,7 +58,6 @@ const equationOptions = (numberButton, operatorOptions) => {
   equalButton.addEventListener('click', () => {
     console.log(numberButton, operatorOptions)
   })
-  // console.log(
 }
 
 const calculation = () => {
