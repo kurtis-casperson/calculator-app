@@ -9,9 +9,9 @@ const buttonEvents = document.querySelectorAll('[data-button]')
 const twobuttons = document.querySelectorAll('row-two')
 const buttons = document.getElementsByClassName('number-btn')
 const operators = document.getElementsByClassName('operator-btn')
-const equalButton = document.getElementsByClassName('equal-btn')
+const equalButton = document.getElementById('equal-btn')
 const display = document.getElementById('numberDisplay')
-let screenDisplay = []
+let equationArray = []
 
 const buttonsArray = [...buttons]
 console.log('buttonsArray', buttonsArray)
@@ -24,7 +24,6 @@ const operatorArray = [...operators]
 const buttonDisplayFunction = (buttonsArray) => {
   buttonsArray.forEach((button) => {
     button.addEventListener('click', () => {
-      console.log(button.value)
       display.textContent = button.value
     })
   })
@@ -32,26 +31,46 @@ const buttonDisplayFunction = (buttonsArray) => {
 
 // perform equations
 
-const numberSequence = (buttonsArray) => {
+const numberEvents = (buttonsArray) => {
   buttonsArray.forEach((button) => {
     button.addEventListener('click', () => {
+      let value = button.value
+      return value
+      // equationArray.push(button.value)
+      console.log(equationArray, 'equation')
       // add nubmer or decimal to the equationString
     })
   })
 }
 
-operatorArray.forEach((operator) => {
-  operator.addEventListener('click', () => {
-    console.log(operator.value)
-    // add operator to equationString
-    // if equationString begins [0] with an operator, then remove the operator from the string
+const operatorEvents = (operatorArray) => {
+  operatorArray.forEach((operator) => {
+    operator.addEventListener('click', () => {
+      let value = operator.value
+      console.log(value)
+      return value
+      // equationArray.push(operator.value)
+      console.log(operator.value)
+      // add operator to equationString
+      // if equationString begins [0] with an operator, then remove the operator from the string
+    })
   })
-})
+}
+
+const equationOptions = (numberButton, operatorOptions) => {
+  equalButton.addEventListener('click', () => {
+    console.log(numberButton, operatorOptions)
+  })
+  // console.log(
+}
 
 const calculation = () => {
-  const buttonPress = buttonDisplayFunction(buttonsArray)
+  const numberDisplay = buttonDisplayFunction(buttonsArray)
+  const operatorOptions = operatorEvents(operatorArray)
+  const numberButton = numberEvents(buttonsArray)
+  const equationresult = equationOptions(numberButton, operatorOptions)
 
-  return buttonPress
+  return numberDisplay, operatorOptions, equationresult
 }
 
 calculation()
