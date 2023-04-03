@@ -31,10 +31,12 @@ const buttonDisplayFunction = (buttonsArray) => {
 const numberEvents = (buttonsArray) => {
   buttonsArray.forEach((button) => {
     button.addEventListener('click', () => {
+      equationArray.push(button.value)
       let value = button.value
+      console.log(value)
       return value
       // equationArray.push(button.value)
-      console.log(equationArray, 'equation')
+
       // add nubmer or decimal to the equationString
     })
   })
@@ -43,6 +45,7 @@ const numberEvents = (buttonsArray) => {
 const operatorEvents = (operatorArray) => {
   operatorArray.forEach((operator) => {
     operator.addEventListener('click', () => {
+      equationArray.push(operator.value)
       let value = operator.value
       console.log(value)
       return value
@@ -54,9 +57,9 @@ const operatorEvents = (operatorArray) => {
   })
 }
 
-const equationOptions = (numberButton, operatorOptions) => {
+const equationOptions = (equationArray) => {
   equalButton.addEventListener('click', () => {
-    console.log(numberButton, operatorOptions)
+    console.log(equationArray)
   })
 }
 
@@ -64,9 +67,9 @@ const calculation = () => {
   const numberDisplay = buttonDisplayFunction(buttonsArray)
   const operatorOptions = operatorEvents(operatorArray)
   const numberButton = numberEvents(buttonsArray)
-  const equationresult = equationOptions(numberButton, operatorOptions)
+  const equationresult = equationOptions(equationArray)
 
-  return numberDisplay, operatorOptions, equationresult
+  return numberDisplay, operatorOptions, numberButton, equationresult
 }
 
 calculation()
