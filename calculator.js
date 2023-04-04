@@ -6,33 +6,46 @@ const buttons = document.getElementsByClassName('number-btn')
 const operators = document.getElementsByClassName('operator-btn')
 
 const display = document.getElementById('numberDisplay')
-let equationArray = []
+let firstDigitArray = []
+let secondDigitArray = []
 
 const buttonsArray = [...buttons]
 const operatorArray = [...operators]
+let first = ''
+let second = ''
+
+let operation = ''
 
 // display functions
 
 const buttonDisplayFunction = (buttonsArray) => {
   buttonsArray.forEach((button) => {
     button.addEventListener('click', () => {
-      display.textContent = button.value
+      let numberDisplay = (display.textContent = button.value)
+      numberDisplay
+      // if ((operation = [] && digitArray.length > 0)) {
+      // display.textContent = firstDigitArray.join('')
+      // }
     })
   })
 }
 
 // perform equations
-let first = ''
-let second = ''
-let firstOperator = equationArray[0]
-let secondOperator = equationArray[1]
-let operation = []
 
 const numberEvents = (buttonsArray) => {
   buttonsArray.forEach((button) => {
     button.addEventListener('click', () => {
-      equationArray.push(button.value)
-      console.log(equationArray, 'equation-array')
+      if (operation.length === 1) {
+        secondDigitArray.push(button.value)
+      } else {
+        firstDigitArray.push(button.value)
+      }
+
+      display.textContent = firstDigitArray.join('')
+      if (operation.length === 1 && firstDigitArray.length > 0) {
+        display.textContent = secondDigitArray.join('')
+      }
+      console.log('firstDigitArray', firstDigitArray)
     })
   })
 }
@@ -40,9 +53,13 @@ const numberEvents = (buttonsArray) => {
 const operatorEvents = (operatorArray) => {
   operatorArray.forEach((operator) => {
     operator.addEventListener('click', () => {
+      // if numberArray is more than one index then join them together
+
+      display.textContent = ''
       if (operation != []) operation = []
-      operation.push(operator.value)
-      console.log(operation, 'operation')
+      operation = operator.value
+      console.log('operation', operation)
+      // console.log(firstDigitArray.join(''), 'joined array')
     })
   })
 }
@@ -50,23 +67,31 @@ const operatorEvents = (operatorArray) => {
 const equalButton = document.getElementById('equal-btn')
 
 equalButton.addEventListener('click', () => {
-  console.log(equationArray, 'array')
+  if (firstDigitArray.length > 1) {
+    firstDigitArray.join('')
+  }
+  console.log('array', firstDigitArray, secondDigitArray)
   let equation = []
 
-  if (operation[0] === '+') {
-    display.textContent = Number(equationArray[0]) + Number(equationArray[1])
+  if (operation === '+') {
+    display.textContent =
+      Number(firstDigitArray.join('')) + Number(secondDigitArray.join(''))
   }
-  if (operation[0] === '-') {
-    display.textContent = Number(equationArray[0]) - Number(equationArray[1])
+  if (operation === '-') {
+    display.textContent =
+      Number(firstDigitArray.join('')) - Number(secondDigitArray.join(''))
   }
-  if (operation[0] === '*') {
-    display.textContent = Number(equationArray[0]) * Number(equationArray[1])
+  if (operation === '*') {
+    display.textContent =
+      Number(firstDigitArray.join('')) * Number(secondDigitArray.join(''))
   }
-  if (operation[0] === '/') {
-    display.textContent = Number(equationArray[0]) / Number(equationArray[1])
+  if (operation === '/') {
+    display.textContent =
+      Number(firstDigitArray.join('')) / Number(secondDigitArray.join(''))
   }
-  equationArray = []
-  operation = []
+  firstDigitArray = []
+  secondDigitArray = []
+  operation = ''
   console.log(display, 'display')
 })
 
