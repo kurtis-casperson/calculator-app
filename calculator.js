@@ -7,16 +7,16 @@ const memory = document.getElementById('memoryDisplay')
 
 const buttonsArray = [...buttons]
 const operatorArray = [...operators]
-let firstDigitArray = []
-let secondDigitArray = []
+let firstOperandArray = []
+let secondOperandArray = []
 let operation = ''
 let memoryHolder = ''
 
 const clearButton = document.getElementById('clear')
 clearButton.addEventListener('click', () => {
   displayResult.textContent = ''
-  firstDigitArray = []
-  secondDigitArray = []
+  firstOperandArray = []
+  secondOperandArray = []
   operation = ''
   memoryHolder = ''
   addMemoryButton = ''
@@ -35,7 +35,8 @@ const buttonDisplayFunction = (buttonsArray) => {
 // perform equations
 
 // TODO:
-// 1. error:  When firstdigitarray contains a decimal, then a decimal can not be added to seconddigitarray
+// 1. error:  if decimal is clicked twice, the display keeps a decimal point displayed, but the operation functions normally.
+// 1.A - If operator is pressed and another number is added.. 2 + 2 + 2  ... need to be able to add the third , forth operands
 // 2. need conditional when operator is pressed first, before a number
 // 3. after equal is pressed , need to be able to continue operations.  Clear the array
 //4. Add memory
@@ -44,36 +45,44 @@ const numberEvents = (buttonsArray) => {
   buttonsArray.forEach((button) => {
     button.addEventListener('click', () => {
       // debugger
-      if (firstDigitArray.includes('.') && button.value === '.') {
-        !firstDigitArray.push('.')
-      }
-
-      if (secondDigitArray.includes('.') && button.value === '.') {
-        !secondDigitArray.push('.')
-      }
-
-      if (operation.length === 1) {
-        secondDigitArray.push(button.value)
+      if (operation.length === 0) {
+        if (firstOperandArray.includes('.') && button.value === '.') {
+          return
+        }
+        firstOperandArray.push(button.value)
+        displayResult.textContent = firstOperandArray.join('')
       } else {
-        firstDigitArray.push(button.value)
-      }
+        if (secondOperandArray.includes('.') && button.value === '.') {
+          return
+        }
 
-      displayResult.textContent = firstDigitArray.join('')
-      if (operation.length === 1 && firstDigitArray.length > 0) {
-        displayResult.textContent = secondDigitArray.join('')
+        secondOperandArray.push(button.value)
+        // if (firstOperandArray.length > 0) {
+        displayResult.textContent = secondOperandArray.join('')
+        // }
       }
-      console.log('firstDigitArray', firstDigitArray)
+      console.log('firstOperandArray', firstOperandArray)
     })
   })
 }
 
+// if an operator is selected FIRST then the operation string OR array should clear
 const operatorEvents = (operatorArray) => {
   operatorArray.forEach((operator) => {
     operator.addEventListener('click', () => {
-      if (operation != '' && firstDigitArray === []) {
-        operation = ''
+      if (firstOperandArray.length === 0) {
+        operation = operator.value
+        if (operation.length === 1) {
+          operation = ''
+        }
+      } else {
+        operation = operator.value
+        if (operation != '' && firstOperandArray === []) {
+          operation = ''
+        }
       }
-      operation = operator.value
+
+      console.log('length', operation.length)
       console.log('operation', operation)
     })
   })
@@ -92,38 +101,41 @@ const operatorEvents = (operatorArray) => {
 const equalButton = document.getElementById('equal-btn')
 
 equalButton.addEventListener('click', () => {
-  // if (firstDigitArray.length > 1) {
-  //   firstDigitArray.join('')
-  // }
-  console.log('array', firstDigitArray, 'secondDigitArray', secondDigitArray)
+  console.log(
+    'array',
+    firstOperandArray,
+    'secondOperandArray',
+    secondOperandArray
+  )
 
   if (operation === '+') {
     displayResult.textContent =
-      Number(firstDigitArray.join('')) + Number(secondDigitArray.join(''))
+      Number(firstOperandArray.join('')) + Number(secondOperandArray.join(''))
 
     memoryHolder += displayResult.textContent
     console.log('memoryHolder', memoryHolder)
   }
   if (operation === '-') {
     displayResult.textContent =
-      Number(firstDigitArray.join('')) - Number(secondDigitArray.join(''))
+      Number(firstOperandArray.join('')) - Number(secondOperandArray.join(''))
     memoryHolder += displayResult.textContent
     console.log('memoryHolder', memoryHolder)
   }
   if (operation === '*') {
     displayResult.textContent =
-      Number(firstDigitArray.join('')) * Number(secondDigitArray.join(''))
+      Number(firstOperandArray.join('')) * Number(secondOperandArray.join(''))
     memoryHolder += displayResult.textContent
     console.log('memoryHolder', memoryHolder)
   }
   if (operation === '/') {
     displayResult.textContent =
-      Number(firstDigitArray.join('')) / Number(secondDigitArray.join(''))
+      Number(firstOperandArray.join('')) / Number(secondOperandArray.join(''))
     memoryHolder += displayResult.textContent
     console.log('memoryHolder', memoryHolder)
   }
-  console.log('firstDigitArray', firstDigitArray)
-  firstDigitArray.length = 0
+  firstOperandArray.length = 0
+  console.log('firstOperandArray', firstOperandArray)
+  console.log('firstOperandArray.length', firstOperandArray.length)
 })
 
 const calculation = () => {
