@@ -38,16 +38,18 @@ const buttonDisplayFunction = (buttonsArray) => {
 // 1. error:  When firstdigitarray contains a decimal, then a decimal can not be added to seconddigitarray
 // 2. need conditional when operator is pressed first, before a number
 // 3. after equal is pressed , need to be able to continue operations.  Clear the array
+//4. Add memory
 
 const numberEvents = (buttonsArray) => {
   buttonsArray.forEach((button) => {
     button.addEventListener('click', () => {
+      // debugger
       if (firstDigitArray.includes('.') && button.value === '.') {
-        return
+        !firstDigitArray.push('.')
       }
 
       if (secondDigitArray.includes('.') && button.value === '.') {
-        return
+        !secondDigitArray.push('.')
       }
 
       if (operation.length === 1) {
