@@ -36,8 +36,7 @@ const buttonDisplayFunction = (buttonsArray) => {
 
 // TODO:
 // 1. error:  if decimal is clicked twice, the display keeps a decimal point displayed, but the operation functions normally.
-// 1.A - If operator is pressed and another number is added.. 2 + 2 + 2  ... need to be able to add the third , forth operands
-// 2. need conditional when operator is pressed first, before a number
+// 2. if a decimal is pressed first and then an operator... this becomes 0.
 // 3. after equal is pressed , need to be able to continue operations.  Clear the array
 //4. Add memory
 
@@ -66,7 +65,6 @@ const numberEvents = (buttonsArray) => {
   })
 }
 
-// if an operator is selected FIRST then the operation string OR array should clear
 const operatorEvents = (operatorArray) => {
   operatorArray.forEach((operator) => {
     operator.addEventListener('click', () => {
@@ -77,9 +75,6 @@ const operatorEvents = (operatorArray) => {
         }
       } else {
         operation = operator.value
-        if (operation != '' && firstOperandArray === []) {
-          operation = ''
-        }
       }
 
       console.log('length', operation.length)
@@ -153,3 +148,5 @@ let addMemoryButton = document.getElementById('addMemory')
 addMemoryButton.addEventListener('click', () => {
   memory.textContent = memoryHolder
 })
+
+//
