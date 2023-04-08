@@ -11,7 +11,7 @@ let firstOperandArray = []
 let secondOperandArray = []
 let operation = ''
 let memoryHolder = ''
-let result = ''
+// let result = ''
 const clearButton = document.getElementById('clear')
 clearButton.addEventListener('click', () => {
   displayResult.textContent = ''
@@ -37,9 +37,10 @@ const buttonDisplayFunction = (buttonsArray) => {
 
 // TODO:
 // 1. after equal is pressed , need to be able to continue operations.  Clear the array
-//2. Add memory
-// 3.  if a decimal is pressed first and then an operator... this becomes 0.
-// 4. error:  if decimal is clicked twice, the display keeps a decimal point displayed, but the operation functions normally.
+// 2. after equal is selected the next number selected should start a new equation
+// 3. Add memory
+// 4.  if a decimal is pressed first and then an operator... this becomes 0.
+// 5. error:  if decimal is clicked twice, the display keeps a decimal point displayed, but the operation functions normally.
 
 const numberEvents = (buttonsArray) => {
   buttonsArray.forEach((button) => {
@@ -135,7 +136,7 @@ equalButton.addEventListener('click', () => {
     console.log('memoryHolder', memoryHolder)
   }
 
-  result += +displayResult.textContent
+  // result += +displayResult.textContent
 
   firstOperandArray = []
   secondOperandArray = []
