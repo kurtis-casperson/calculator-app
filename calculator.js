@@ -11,7 +11,7 @@ let firstOperandArray = []
 let secondOperandArray = []
 let operation = ''
 let memoryHolder = ''
-
+let result = ''
 const clearButton = document.getElementById('clear')
 clearButton.addEventListener('click', () => {
   displayResult.textContent = ''
@@ -20,6 +20,7 @@ clearButton.addEventListener('click', () => {
   operation = ''
   memoryHolder = ''
   addMemoryButton = ''
+  result = ''
 })
 
 // display functions
@@ -35,10 +36,10 @@ const buttonDisplayFunction = (buttonsArray) => {
 // perform equations
 
 // TODO:
-// 1. error:  if decimal is clicked twice, the display keeps a decimal point displayed, but the operation functions normally.
-// 2. if a decimal is pressed first and then an operator... this becomes 0.
-// 3. after equal is pressed , need to be able to continue operations.  Clear the array
-//4. Add memory
+// 1. after equal is pressed , need to be able to continue operations.  Clear the array
+//2. Add memory
+// 3.  if a decimal is pressed first and then an operator... this becomes 0.
+// 4. error:  if decimal is clicked twice, the display keeps a decimal point displayed, but the operation functions normally.
 
 const numberEvents = (buttonsArray) => {
   buttonsArray.forEach((button) => {
@@ -56,11 +57,24 @@ const numberEvents = (buttonsArray) => {
         }
 
         secondOperandArray.push(button.value)
-        // if (firstOperandArray.length > 0) {
         displayResult.textContent = secondOperandArray.join('')
-        // }
       }
-      console.log('firstOperandArray', firstOperandArray)
+
+      // result condition
+      if (operation.length === 1 && result !== '') {
+        if (firstOperandArray.includes('.') && button.value === '.') {
+          return
+        }
+        firstOperandArray.push(button.value)
+        displayResult.textContent = firstOperandArray.join('')
+
+        if (secondOperandArray.includes('.') && button.value === '.') {
+          return
+        }
+
+        secondOperandArray.push(button.value)
+        displayResult.textContent = secondOperandArray.join('')
+      }
     })
   })
 }
@@ -73,12 +87,12 @@ const operatorEvents = (operatorArray) => {
         if (operation.length === 1) {
           operation = ''
         }
+        if (result !== '') {
+          operation = operator.value
+        }
       } else {
         operation = operator.value
       }
-
-      console.log('length', operation.length)
-      console.log('operation', operation)
     })
   })
 }
@@ -96,17 +110,9 @@ const operatorEvents = (operatorArray) => {
 const equalButton = document.getElementById('equal-btn')
 
 equalButton.addEventListener('click', () => {
-  console.log(
-    'array',
-    firstOperandArray,
-    'secondOperandArray',
-    secondOperandArray
-  )
-
   if (operation === '+') {
     displayResult.textContent =
       Number(firstOperandArray.join('')) + Number(secondOperandArray.join(''))
-
     memoryHolder += displayResult.textContent
     console.log('memoryHolder', memoryHolder)
   }
@@ -128,9 +134,17 @@ equalButton.addEventListener('click', () => {
     memoryHolder += displayResult.textContent
     console.log('memoryHolder', memoryHolder)
   }
-  firstOperandArray.length = 0
+
+  result += +displayResult.textContent
+
+  firstOperandArray = []
+  secondOperandArray = []
+  operation = ''
   console.log('firstOperandArray', firstOperandArray)
-  console.log('firstOperandArray.length', firstOperandArray.length)
+  console.log('secondOperandArray', secondOperandArray)
+  console.log('operation', operation)
+  console.log('operationlength', operation.length)
+  console.log('result', result)
 })
 
 const calculation = () => {
