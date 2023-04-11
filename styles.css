@@ -1,46 +1,52 @@
 body {
-  min-height: 100vh;
-  /* background-color: rgba(249, 157, 124, 0.883); */
+  background-color: black;
+  font-family: 'Audiowide';
+  font-size: 2em;
 }
 
 #title {
   margin-top: 50px;
   text-align: center;
+  color: #16a085;
 }
 .app-container {
   display: flex;
   flex: 1 0 auto;
 
+  position: relative;
+  margin: 100px auto;
+  background-color: #2c3e50;
+
+  border: solid #34495e 5px;
+  border-radius: 5px;
+
   flex-direction: column;
 
-  margin: 200px;
+  /* margin: 200px; */
   margin-left: 450px;
-  min-width: 270px;
-  max-width: 300px;
-  height: 400px;
-  background: rgb(34, 159, 195);
-  background: linear-gradient(
-    0deg,
-    rgba(34, 159, 195, 0.8828125) 7%,
-    rgba(255, 162, 75, 0.8239889705882353) 94%
-  );
+  min-width: 350px;
+  max-width: 400px;
+  height: 600px;
+  background: rgb(34, 48, 52);
+  background: linear-gradient(0deg, rgba(37, 45, 48, 0.883) 35%, #2c3e50);
 
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 #numberDisplay {
-  width: 80%;
-  height: 40px;
-  font-size: 20px;
-  font-family: Geneva, sans-serif;
-  margin: 3px;
-  border: none;
-  float: right;
-  color: #f5f5f5;
-  font-size: 25px;
+  width: 330px;
+  height: 50px;
+  background-color: #16a085;
+  margin: 50px auto 60px auto;
+  border: solid #112622 2px;
+  border-radius: 4px;
+  font-size: 1.75em;
   text-align: right;
+  padding: 45px 10px 10px 10px;
+  float: right;
 }
+
 .display-container > #numberDisplay {
   background-color: #0f0f0f83;
 }
@@ -52,52 +58,86 @@ body {
   min-width: 250px;
 }
 
-.clear-btn {
-  float: left;
-  display: flex;
-  align-items: center;
-  color: white;
-  background-color: rgba(230, 52, 36, 0.665);
-  font-size: 30px;
-
-  width: 60px;
-  height: 60px;
-
+.number-btn {
+  background-color: #bdc3c7;
+  width: 65px;
+  height: 55px;
+  margin: 8px;
+  display: inline-block;
+  border-radius: 5px;
+  border-right: solid black 1px;
+  border-bottom: solid black 1px;
+  border-top: solid #bdc3c7 1px;
+  border-left: solid #bdc3c7 1px;
+  padding: 10px;
   cursor: pointer;
 }
-
-.number-btn {
-  color: white;
-  background-color: hwb(60 15% 1% / 0.723);
+#zeroButton {
+  color: rgb(4, 4, 4);
+  background-color: #bdc3c7;
   font-size: 30px;
-
-  width: 60px;
-  height: 60px;
-
+  width: 150px;
+  height: 55px;
+  margin: 8px;
+  display: inline-block;
+  border-radius: 5px;
+  border-right: solid black 1px;
+  border-bottom: solid black 1px;
+  border-top: solid #393939 1px;
+  border-left: solid #393939 1px;
+  padding: 10px 0px 10px 0px;
   cursor: pointer;
 }
 
 .operator-btn {
   color: white;
   background-color: #f8ab1bd5;
-
   font-size: 30px;
+  width: 65px;
+  height: 55px;
+  display: inline-block;
 
-  width: 60px;
-  height: 60px;
-
+  border-right: solid black 1px;
+  border-bottom: solid black 1px;
+  border-top: solid #bdc3c7 1px;
+  border-left: solid #bdc3c7 1px;
+  border-radius: 10px;
+  padding: 10px;
   cursor: pointer;
 }
-.equal-btn {
+
+.clear-btn {
+  float: left;
+  display: flex;
+  align-items: center;
   color: white;
-  background-color: hsla(208, 94%, 54%, 0.835);
+  background-color: #c0392b;
   font-size: 30px;
-
-  width: 250px;
+  width: 150px;
   height: 60px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+.equal-btn {
+  background-color: #27ae60;
+  font-size: 30px;
+  width: 150px;
+  height: 60px;
+  margin: 8px;
+  display: inline-block;
+  border-radius: 5px;
+  border-right: solid black 1px;
+  border-bottom: solid black 1px;
+  border-top: solid #27ae60 1px;
+  border-left: solid #27ae60 1px;
+  padding: 10px 0px 10px 0px;
   cursor: pointer;
 }
 button:hover {
-  background-color: hsla(41, 55%, 61%, 0.435);
+  background-color: #2c3e50;
+}
+
+button:hover > #zer0-btn {
+  background-color: #2c3e50;
 }
