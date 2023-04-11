@@ -30,7 +30,6 @@ const buttonDisplayFunction = (buttonsArray) => {
 const numberEvents = (buttonsArray) => {
   buttonsArray.forEach((button) => {
     button.addEventListener('click', () => {
-      debugger
       if (operation.length === 0 && secondOperandArray.length === 0) {
         console.log(firstOperandArray)
         if (firstOperandArray.includes('.') && button.value === '.') {
