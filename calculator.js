@@ -31,7 +31,6 @@ const numberEvents = (buttonsArray) => {
   buttonsArray.forEach((button) => {
     button.addEventListener('click', () => {
       if (operation.length === 0 && secondOperandArray.length === 0) {
-        console.log(firstOperandArray)
         if (firstOperandArray.includes('.') && button.value === '.') {
           return
         }
@@ -53,7 +52,6 @@ const numberEvents = (buttonsArray) => {
 const operatorEvents = (operatorArray) => {
   operatorArray.forEach((operator) => {
     operator.addEventListener('click', () => {
-      console.log('operationle', operation.length)
       if (firstOperandArray.includes('.') && firstOperandArray.length === 1) {
         firstOperandArray.push('0')
       }
