@@ -15,27 +15,10 @@
       <div class="diplay-container">
         <div>
           <span id="numberDisplay"></span>
-          <span id="memoryDisplay"></span>
         </div>
-        <div>
-          <button
-            id="clear"
-            class="clear-btn"
-            onclick="document.getElementById(
-            'numberDisplay').value = ''"
-            value="CE"
-          >
-            CE
-          </button>
-        </div>
+        <div></div>
       </div>
       <div class="buttons-container">
-        <div class="memory-btn-container">
-          <button class="number-btn, memory-btn" id="addMemory">M+</button>
-          <button class="number-btn, memory-btn" id="M-">M-</button>
-          <button class="number-btn, memory-btn" id="clearMemory">MC</button>
-          <button class="number-btn, memory-btn" id="MR">MR</button>
-        </div>
         <div>
           <button class="number-btn" value="7">7</button>
           <button class="number-btn" value="8">8</button>
@@ -55,12 +38,23 @@
           <button class="operator-btn" value="-">-</button>
         </div>
         <div>
+          <button
+            id="clear"
+            class="clear-btn"
+            onclick="document.getElementById(
+            'numberDisplay').value = ''"
+            value="CE"
+          >
+            CE
+          </button>
           <button class="number-btn" value="0">0</button>
           <button class="number-btn" value=".">.</button>
+          <button class="operator-btn" value="+">+</button>
+        </div>
+        <div>
           <button class="operator-btn, equal-btn" id="equal-btn" value="=">
             =
           </button>
-          <button class="operator-btn" value="+">+</button>
         </div>
       </div>
     </div>
