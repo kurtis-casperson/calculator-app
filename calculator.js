@@ -45,6 +45,14 @@ const numberEvents = (buttonsArray) => {
         secondOperandArray.push(button.value)
         displayResult.textContent = secondOperandArray.join('')
       }
+      console.log(
+        'first operand',
+        firstOperandArray,
+        'second operand',
+        secondOperandArray,
+        'operation',
+        operation
+      )
     })
   })
 }
@@ -67,12 +75,22 @@ const operatorEvents = (operatorArray) => {
           operation = operator.value
         }
       }
+      if (secondOperandArray.length === 0 && firstOperandArray.length > 0) {
+        operation = operator.value
+        if (operation.length === 1) {
+          operation = ''
+        }
+        if (result !== '') {
+          operation = operator.value
+        }
+      }
       if (
         operation.length !== 0 &&
         firstOperandArray.length > 0 &&
         secondOperandArray.length > 0
       ) {
         if (operation === '+') {
+          operation = operator.value
           result =
             convertToNumbers(firstOperandArray.join('')) +
             convertToNumbers(secondOperandArray.join(''))
@@ -80,6 +98,7 @@ const operatorEvents = (operatorArray) => {
           secondOperandArray = []
         }
         if (operation === '-') {
+          operation = operator.value
           result =
             convertToNumbers(firstOperandArray.join('')) -
             convertToNumbers(secondOperandArray.join(''))
@@ -87,6 +106,7 @@ const operatorEvents = (operatorArray) => {
           secondOperandArray = []
         }
         if (operation === '*') {
+          operation = operator.value
           result =
             convertToNumbers(firstOperandArray.join('')) *
             convertToNumbers(secondOperandArray.join(''))
@@ -94,6 +114,7 @@ const operatorEvents = (operatorArray) => {
           secondOperandArray = []
         }
         if (operation === '/') {
+          operation = operator.value
           result =
             convertToNumbers(firstOperandArray.join('')) /
             convertToNumbers(secondOperandArray.join(''))
@@ -103,6 +124,14 @@ const operatorEvents = (operatorArray) => {
       } else {
         operation = operator.value
       }
+      console.log(
+        'first operand-operaor',
+        firstOperandArray,
+        'second operand-operator',
+        secondOperandArray,
+        'operation',
+        operation
+      )
     })
   })
 }
@@ -136,6 +165,8 @@ equalButton.addEventListener('click', () => {
   }
 
   result += +displayResult.textContent
+
+  console.log(firstOperandArray, secondOperandArray)
 })
 
 const calculation = () => {
