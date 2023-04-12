@@ -113,7 +113,7 @@ const operatorEvents = (operatorArray) => {
           firstOperandArray = String(result).split('')
           secondOperandArray = []
         }
-        if (operation === '/') {
+        if (operation.value === '/') {
           operation = operator.value
           result =
             convertToNumbers(firstOperandArray.join('')) /
