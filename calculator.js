@@ -146,8 +146,9 @@ equalButton.addEventListener('click', () => {
   }
 
   result += +displayResult.textContent
-
-  console.log(firstOperandArray, secondOperandArray)
+  firstOperandArray = []
+  secondOperandArray = []
+  operation = ''
 })
 
 const calculation = () => {
