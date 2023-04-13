@@ -52,7 +52,6 @@ const numberEvents = (buttonsArray) => {
 const operatorEvents = (operatorArray) => {
   operatorArray.forEach((operator) => {
     operator.addEventListener('click', () => {
-      debugger
       if (firstOperandArray.includes('.') && firstOperandArray.length === 1) {
         firstOperandArray.push('0')
       }
