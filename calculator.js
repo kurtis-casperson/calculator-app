@@ -45,14 +45,6 @@ const numberEvents = (buttonsArray) => {
         secondOperandArray.push(button.value)
         displayResult.textContent = secondOperandArray.join('')
       }
-      console.log(
-        'first operand',
-        firstOperandArray,
-        'second operand',
-        secondOperandArray,
-        'operation',
-        operation
-      )
     })
   })
 }
@@ -60,6 +52,7 @@ const numberEvents = (buttonsArray) => {
 const operatorEvents = (operatorArray) => {
   operatorArray.forEach((operator) => {
     operator.addEventListener('click', () => {
+      debugger
       if (firstOperandArray.includes('.') && firstOperandArray.length === 1) {
         firstOperandArray.push('0')
       }
@@ -90,7 +83,6 @@ const operatorEvents = (operatorArray) => {
         secondOperandArray.length > 0
       ) {
         if (operation === '+') {
-          operation = operator.value
           result =
             convertToNumbers(firstOperandArray.join('')) +
             convertToNumbers(secondOperandArray.join(''))
@@ -98,7 +90,6 @@ const operatorEvents = (operatorArray) => {
           secondOperandArray = []
         }
         if (operation === '-') {
-          operation = operator.value
           result =
             convertToNumbers(firstOperandArray.join('')) -
             convertToNumbers(secondOperandArray.join(''))
@@ -106,32 +97,23 @@ const operatorEvents = (operatorArray) => {
           secondOperandArray = []
         }
         if (operation === '*') {
-          operation = operator.value
           result =
             convertToNumbers(firstOperandArray.join('')) *
             convertToNumbers(secondOperandArray.join(''))
           firstOperandArray = String(result).split('')
           secondOperandArray = []
         }
-        if (operation.value === '/') {
-          operation = operator.value
+        if (operation === '/') {
           result =
             convertToNumbers(firstOperandArray.join('')) /
             convertToNumbers(secondOperandArray.join(''))
           firstOperandArray = String(result).split('')
           secondOperandArray = []
         }
+        operation = operator.value
       } else {
         operation = operator.value
       }
-      console.log(
-        'first operand-operaor',
-        firstOperandArray,
-        'second operand-operator',
-        secondOperandArray,
-        'operation',
-        operation
-      )
     })
   })
 }
