@@ -21,7 +21,7 @@ body {
   margin-left: 35%;
   min-width: 350px;
   max-width: 400px;
-  height: 600px;
+  min-height: 500px;
   background: rgb(34, 48, 52);
   background: linear-gradient(0deg, rgba(37, 45, 48, 0.883) 35%, #2c3e50);
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
@@ -35,13 +35,10 @@ body {
   border: solid #112622 2px;
   border-radius: 4px;
   font-size: 1.75em;
+  color: #ede4e4e0;
   text-align: right;
   padding: 45px 10px 10px 10px;
   float: right;
-}
-
-.display-container > #numberDisplay {
-  background-color: #0f0f0f83;
 }
 
 .buttons-container {
@@ -53,6 +50,7 @@ body {
 
 .number-btn {
   background-color: #bdc3c7;
+  font-size: 20px;
   width: 65px;
   height: 55px;
   margin: 8px;
@@ -89,7 +87,6 @@ body {
   width: 65px;
   height: 55px;
   display: inline-block;
-
   border-right: solid black 1px;
   border-bottom: solid black 1px;
   border-top: solid #bdc3c7 1px;
