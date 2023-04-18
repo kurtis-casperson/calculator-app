@@ -14,7 +14,7 @@
     <div class="app-container">
       <div class="diplay-container">
         <div>
-          <span id="numberDisplay"></span>
+          <span id="displayScreen"></span>
         </div>
         <div></div>
       </div>
@@ -39,12 +39,12 @@
         </div>
         <div>
           <button class="number-btn" id="zeroButton" value="0">0</button>
-          <button class="number-btn" value=".">.</button>
+          <button class="number-btn" id="decimalBtn" value=".">.</button>
           <button class="operator-btn" value="+">+</button>
         </div>
         <div>
           <button
-            id="clear"
+            id="clearBtn"
             class="clear-btn"
             onclick="document.getElementById(
           'numberDisplay').value = ''"
@@ -52,7 +52,7 @@
           >
             CE
           </button>
-          <button class="operator-btn, equal-btn" id="equal-btn" value="=">
+          <button class="operator-btn, equal-btn" id="equalBtn" value="=">
             =
           </button>
         </div>
