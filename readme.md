@@ -6,7 +6,7 @@ Do some math here! [here](https://kurtis-casperson.github.io/calculator-app/)
 
 ## Description
 
-This calculator app really helped me to develop my dugging skills, and was a great exercsie for expanding my "tool box" for how I approach the design of an app.
+This calculator app really helped me to develop my debugging skills, and was a great exercsie for expanding my "tool box" for how I approach the design of an app.
 This was my first time using flexbox, so I had to spend some time designing my html and css before I could just dive into the javascript.
 
 I created arrays the operand variables as arrays because I thought that would be the best way to add multiple operations together... ehhh not so much!
