@@ -20,7 +20,7 @@ operatorButtons.forEach((operator) => {
   operator.addEventListener('click', (event) => {
     currentOperator = event.target.value
     if (firstNumber && secondNumber) {
-      claculate()
+      calculate()
     }
     console.log(currentOperator)
   })
@@ -58,6 +58,7 @@ const dispalyUserInput = (numberPressed) => {
 }
 
 function calculate() {
+  debugger
   let numOne = parseFloat(firstNumber)
   let numTwo = parseFloat(secondNumber)
 
@@ -83,4 +84,5 @@ function displayCalculation() {
   displayScreen.textContent = parseFloat(secondNumber.toFixed(3))
   firstNumber = ''
   console.log(storedOperator, 'storedOperator')
+  console.log(currentOperator, 'currentOperator')
 }
