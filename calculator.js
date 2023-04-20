@@ -44,17 +44,17 @@ const dispalyUserInput = (numberPressed) => {
   }
   if (currentOperator || secondNumber) {
     if (!secondNumber) {
-      secondNumber = firstNumber.concat(numberPressed)
+      secondNumber = firstNumber
       firstNumber = ''
     }
-  }
 
-  firstNumber = firstNumber.concat(numberPressed)
-  displayScreen.innerText = firstNumber
+    firstNumber = firstNumber.concat(numberPressed)
+    displayScreen.innerText = firstNumber
+
+    return
+  }
   console.log('firstNumber', firstNumber)
   console.log('secondNumber', secondNumber)
-
-  return
 }
 
 function calculate() {
@@ -66,7 +66,7 @@ function calculate() {
     displayCalculation()
   }
   if (storedOperator === '-') {
-    secondNumber = numOne - numTwo
+    secondNumber = numTwo - numOne
     displayCalculation()
   }
   if (storedOperator === '*') {
@@ -74,7 +74,7 @@ function calculate() {
     displayCalculation()
   }
   if (storedOperator === '/') {
-    secondNumber = numOne / numTwo
+    secondNumber = numTwo / numOne
     displayCalculation()
   }
 }
@@ -82,4 +82,5 @@ function calculate() {
 function displayCalculation() {
   displayScreen.textContent = parseFloat(secondNumber.toFixed(3))
   firstNumber = ''
+  console.log(storedOperator, 'storedOperator')
 }
