@@ -6,6 +6,7 @@ body {
 
 #title {
   margin-top: 10px;
+  letter-spacing: 5px;
   text-align: center;
   color: #16a085;
 }
@@ -89,35 +90,23 @@ body {
 }
 
 #clearBtn {
-  float: left;
-  display: flex;
-  align-items: center;
-  color: white;
   background-color: #c0392b;
-  font-size: 30px;
-  width: 150px;
-  height: 60px;
-  border-radius: 5px;
-  cursor: pointer;
-  border: solid black 1px;
 }
 
-#decimalBtn {
-  font-size: 30px;
+#equalBtn {
+  background-color: #27ae60;
 }
 
 .equal-btn,
 .clear-btn {
-  background-color: #27ae60;
+  color: white;
+  font-size: 20px;
   width: 150px;
   height: 60px;
   margin: 8px;
   display: inline-block;
   border-radius: 5px;
-  border-right: solid black 1px;
-  border-bottom: solid black 1px;
-  border-top: solid #27ae60 1px;
-  border-left: solid #27ae60 1px;
+  border: solid black 1px;
   padding: 10px 0px 10px 0px;
   cursor: pointer;
 }

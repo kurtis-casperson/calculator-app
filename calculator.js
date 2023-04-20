@@ -1,7 +1,9 @@
 const buttons = document.getElementsByClassName('number-btn')
 const operators = document.getElementsByClassName('operator-btn')
 const displayResult = document.getElementById('numberDisplay')
+const equalButton = document.getElementById('equalBtn')
 
+const clearButton = document.getElementById('clearBtn')
 const buttonsArray = [...buttons]
 const operatorArray = [...operators]
 let firstOperandArray = []
@@ -9,7 +11,6 @@ let secondOperandArray = []
 let operation = ''
 let result = ''
 
-const clearButton = document.getElementById('clear')
 clearButton.addEventListener('click', () => {
   displayResult.textContent = ''
   firstOperandArray = []
@@ -120,8 +121,6 @@ const operatorEvents = (operatorArray) => {
 function convertToNumbers(value) {
   return Number(value)
 }
-
-const equalButton = document.getElementById('equal-btn')
 
 equalButton.addEventListener('click', () => {
   if (operation === '+') {
