@@ -22,7 +22,6 @@ operatorButtons.forEach((operator) => {
     if (firstNumber && secondNumber) {
       calculate()
     }
-    console.log(currentOperator)
   })
 })
 
@@ -53,8 +52,6 @@ const dispalyUserInput = (numberPressed) => {
 
     return
   }
-  console.log('firstNumber', firstNumber)
-  console.log('secondNumber', secondNumber)
 }
 
 function calculate() {
@@ -83,6 +80,4 @@ function calculate() {
 function displayCalculation() {
   displayScreen.textContent = parseFloat(secondNumber.toFixed(3))
   firstNumber = ''
-  console.log(storedOperator, 'storedOperator')
-  console.log(currentOperator, 'currentOperator')
 }
