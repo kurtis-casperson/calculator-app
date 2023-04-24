@@ -8,13 +8,14 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon-16x16.png" />
   </head>
   <body>
     <h1 id="title">Calculator App</h1>
     <div class="app-container">
       <div class="diplay-container">
         <div>
-          <span id="numberDisplay"></span>
+          <span id="displayScreen"></span>
         </div>
         <div></div>
       </div>
@@ -39,19 +40,11 @@
         </div>
         <div>
           <button class="number-btn" id="zeroButton" value="0">0</button>
-          <button class="number-btn" value=".">.</button>
+          <button class="number-btn" id="decimalBtn" value=".">.</button>
           <button class="operator-btn" value="+">+</button>
         </div>
         <div>
-          <button
-            id="clearBtn"
-            class="clear-btn"
-            onclick="document.getElementById(
-          'numberDisplay').value = ''"
-            value="CE"
-          >
-            CE
-          </button>
+          <button class="clear-btn" id="clearBtn">CE</button>
           <button class="operator-btn, equal-btn" id="equalBtn" value="=">
             =
           </button>
