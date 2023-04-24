@@ -10,8 +10,13 @@ This calculator app really helped me to develop my debugging skills, and was a g
 This was my first time using flexbox, so I had to spend some time designing my html and css before I could just dive into the javascript.
 
 I created arrays the operand variables as arrays because I thought that would be the best way to add multiple operations together... ehhh not so much!
+After refactoring, I removed the ~~arrays~~ to instead use empty strings for each variable. _This makes the code much more concise with less complicated conditional operations._
 
-By the time I realized that creating empty variables would have been simpler, I thought that I had gone too far. So I came up with some creative ways to meet all of the conditionals required!
+Calculator Functionality :
+
+- Basic Mathematic equations
+- Continuous functions: 1 + 1 + 1 + 1 = 4 OR 1 + 2 = 3 / 1 = 3
+- Displays decimals to the thousandth (.001)
 
 ## Author
 
